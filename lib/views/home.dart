@@ -52,10 +52,10 @@ class _HomeState extends State<Home> {
               ),
             )
           : SingleChildScrollView(
-
               child: Container(
                 child: Column(
                   children: <Widget>[
+                    // Categories View
                     Container(
                       margin: EdgeInsets.only(top: 10.0),
                       height: 70,
@@ -70,17 +70,22 @@ class _HomeState extends State<Home> {
                             );
                           }),
                     ),
+
+                    //BLogs View
                     Container(
+                      padding: EdgeInsets.all(16),
                       margin: EdgeInsets.only(top: 10.0),
                       child: ListView.builder(
-                          itemCount: categories.length,
+                          itemCount: articles.length,
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
+
                           itemBuilder: (context, index) {
                             return BlogTile(
                               imageUrl: articles[index].urlToImage,
                               title: articles[index].title,
                               desc: articles[index].description,
+                              url: articles[index].url,
                             );
                           }),
                     ),
@@ -92,6 +97,7 @@ class _HomeState extends State<Home> {
   }
 }
 
+// Category horizontal List
 class CategoryTile extends StatelessWidget {
   final imagUrl, categoryName;
 
